@@ -242,7 +242,7 @@
             ],
             "commonFrameProperties": {
                 "kind": "exp-lookit-images-audio",
-                "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
+                "baseDir": "BASE-DIRECTORY",
                 "id": "storybook-group",
                 "audioTypes": [
                     "ogg"
@@ -261,43 +261,44 @@
         "stories": {
             "kind": "choice",
             "sampler": "random-parameter-set",
+            "baseDir": "BASE-DIRECTORY",
             "frameList": [
                 {
-                    "audio": "STORY-INTRO-AUDIO",
+                    "audio": "story_intro",
                     "images": [
                         {
                             "id": "story-intro",
-                            "src": "STORY-INTRO-IMAGE",
+                            "src": "noParent.jpg",
                             "position": "fill"
                         }
                     ]
                 },
                 {
-                    "audio": "STORY-PARENT-AUDIO",
+                    "audio": "parent_combined",
                     "images": [
                         {
                             "id": "story-parent",
-                            "src": "STORY-PARENT-IMAGE",
+                            "src": "parent.jpg",
                             "position": "fill"
                         }
                     ]
                 },
                 {
-                    "audio": "STORY-PARENT-WANTS-AUDIO",
+                    "audio": "parent-wants",
                     "images": [
                         {
                             "id": "story-parent-wants",
-                            "src": "STORY-PARENT-IMAGE",
+                            "src": "parent.jpg",
                             "position": "fill"
                         }
                     ]
                 },
                 {
-                    "audio": "STORY-OPTIONS-AUDIO",
+                    "audio": "options_combined",
                     "images": [
                         {
                             "id": "option1",
-                            "src": "STORY-COMPLIANCE-IMAGE",
+                            "src": "compliance.jpg",
                             "top": 5,
                             "left": 5,
                             "width": 30,
@@ -305,7 +306,7 @@
                         },
                         {
                             "id": "option2",
-                            "src": "STORY-LOOPHOLE-IMAGE",
+                            "src": "loophole.jpg",
                             "top": 35,
                             "left": 35,
                             "width": 30,
@@ -313,7 +314,7 @@
                         },
                         {
                             "id": "option3",
-                            "src": "STORY-NONCOMPLIANCE-IMAGE",
+                            "src": "noncompliance.jpg",
                             "top": 65,
                             "left":65,
                             "width": 30,
@@ -341,7 +342,6 @@
             ],
             "commonFrameProperties": {
                 "kind": "exp-lookit-images-audio",
-                "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
                 "id": "storybook-group",
                 "audioTypes": [
                     "mp3"
@@ -359,15 +359,7 @@
             },
             "parameterSets": [
                 {
-                    "STORY-INTRO-AUDIO": "tablet/story_intro",
-                    "STORY-INTRO-IMAGE": "stories/tablet/tablet_noParent.jpg",
-                    "STORY-PARENT-AUDIO": "tablet/parent_combined",
-                    "STORY-PARENT-IMAGE": "stories/tablet/tablet_parent.jpg",
-                    "STORY-PARENT-WANTS-AUDIO": "tablet/parent_wants",
-                    "STORY-OPTIONS-AUDIO": "tablet/options_combined",
-                    "STORY-COMPLIANCE-IMAGE": "stories/tablet/tablet_large_compliance.jpg",
-                    "STORY-LOOPHOLE-IMAGE": "stories/tablet/tablet_large_loophole.jpg",
-                    "STORY-NONCOMPLIANCE-IMAGE": "stories/tablet/tablet_large_noncompliance.jpg",
+                    "BASE-DIRECTORY": "https://raw.githubusercontent.com/buksters/WHN/tablet/main/",
                     "FIRST-OPTION-HIGHLIGHT": [
                         5.7,
                         14
