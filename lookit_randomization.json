@@ -360,14 +360,14 @@
             "parameterSets": [
                 {
                     "STORY-INTRO-AUDIO": "tablet/story_intro",
-                    "STORY-INTRO-IMAGE": "stories/tablet/tablet_noParent.jpg",
+                    "STORY-INTRO-IMAGE": "stories/tablet/noParent.jpg",
                     "STORY-PARENT-AUDIO": "tablet/parent_combined",
-                    "STORY-PARENT-IMAGE": "stories/tablet/tablet_parent.jpg",
+                    "STORY-PARENT-IMAGE": "stories/tablet/parent.jpg",
                     "STORY-PARENT-WANTS-AUDIO": "tablet/parent_wants",
                     "STORY-OPTIONS-AUDIO": "tablet/options_combined",
-                    "STORY-COMPLIANCE-IMAGE": "stories/tablet/tablet_large_compliance.jpg",
-                    "STORY-LOOPHOLE-IMAGE": "stories/tablet/tablet_large_loophole.jpg",
-                    "STORY-NONCOMPLIANCE-IMAGE": "stories/tablet/tablet_large_noncompliance.jpg",
+                    "STORY-COMPLIANCE-IMAGE": "stories/tablet/large_compliance.jpg",
+                    "STORY-LOOPHOLE-IMAGE": "stories/tablet/large_loophole.jpg",
+                    "STORY-NONCOMPLIANCE-IMAGE": "stories/tablet/large_noncompliance.jpg",
                     "FIRST-OPTION-HIGHLIGHT": [
                         5.7,
                         14
@@ -377,8 +377,8 @@
                         20.6
                     ],
                     "THIRD-OPTION-HIGHLIGHT": [
-                        23,
-                        28
+                        22.18,
+                        27.58
                     ]
                 }
             ]
