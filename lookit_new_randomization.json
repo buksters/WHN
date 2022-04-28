@@ -242,7 +242,7 @@
             ],
             "commonFrameProperties": {
                 "kind": "exp-lookit-images-audio",
-                "baseDir": "BASE-DIRECTORY",
+                "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
                 "id": "storybook-group",
                 "audioTypes": [
                     "ogg"
@@ -359,7 +359,7 @@
             },
             "parameterSets": [
                 {
-                    "BASE-DIRECTORY": "https://raw.githubusercontent.com/buksters/WHN/tablet/main/",
+                    "BASE-DIRECTORY": "https://raw.githubusercontent.com/buksters/WHN/main/tablet/",
                     "FIRST-OPTION-HIGHLIGHT": [
                         5.7,
                         14
