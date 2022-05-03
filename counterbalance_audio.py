@@ -43,9 +43,9 @@ def create_audio(stories):
         
         #fourth slide
         intro = AudioSegment.from_file(f"{story}/options_intro.mp3", format="mp3")
-        compliance = AudioSegment.from_file(f"{story}/compliance.mp3", format="mp4")
-        loophole = AudioSegment.from_file(f"{story}/loophole.mp3", format="mp4")
-        noncompliance = AudioSegment.from_file(f"{story}/noncompliance.mp3", format="mp4")
+        compliance = AudioSegment.from_file(f"{story}/compliance.mp3", format="mp3")
+        loophole = AudioSegment.from_file(f"{story}/loophole.mp3", format="mp3")
+        noncompliance = AudioSegment.from_file(f"{story}/noncompliance.mp3", format="mp3")
         or_audio = AudioSegment.from_file("or.mp3", format="mp4")
         options_combined = intro + compliance + loophole + or_audio[700:-500] + noncompliance
         options_audio = {'c': compliance, 'l': loophole, 'nc': noncompliance}
@@ -63,10 +63,10 @@ def create_audio(stories):
         # play(options_combined)
         
         # --- export---
-        # first = parent_combined.export(f"{story}/parent_combined.mp3", format="mp3")
-        # second_a = parent_combined.export(f"{story}/aligned_combined.mp3", format="mp3")
-        # second_m = parent_combined.export(f"{story}/misaligned_combined.mp3", format="mp3")
-        # third = parent_combined.export(f"{story}/options_combined.mp3", format="mp3")
+        first = parent_combined.export(f"{story}/parent_combined.mp3", format="mp3")
+        second_a = aligned_combined.export(f"{story}/aligned_combined.mp3", format="mp3")
+        second_m = misaligned_combined.export(f"{story}/misaligned_combined.mp3", format="mp3")
+        third = options_combined.export(f"{story}/options_combined.mp3", format="mp3")
         
         # --- for figuring out highlight duration ---
         # length_intro = round(intro.duration_seconds, 2)
@@ -91,6 +91,6 @@ def create_audio(stories):
         #       loop: {length_l},
         #       noncomp: {length_nc}''')
 
-create_audio(['tablet'])
+create_audio(half_recorded)
 
       
