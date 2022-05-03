@@ -1,5 +1,44 @@
-{
-    "frames": {
+function generateProtocol(child, pastSessions) {
+
+    // -------- Helper functions ----------------------------------------------
+
+    // See http://stackoverflow.com/a/12646864
+    // Returns a new array with elements of the array in random order.
+    function shuffle(array) {
+        var shuffled = Ember.$.extend(true, [], array); // deep copy array
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = shuffled[i];
+            shuffled[i] = shuffled[j];
+            shuffled[j] = temp;
+        }
+        return shuffled;
+    }
+
+    // Returns a random element of an array, and removes that element from the array
+    function pop_random(array) {
+        if (array.length) {
+            let randIndex = Math.floor(Math.random() * array.length);
+            return array.splice(randIndex, 1)[0];
+        }
+        return null;
+    }
+
+    // Returns durations for highlighting options
+    function highlight_lengths(options_lengths, story, options_order) {
+        var intro_l = "intro-length";
+        var intro = options_lengths[story][intro_l];
+        var or = 0.85;
+        var first = [intro, intro+options_lengths[story][options_order[0]+'-length']];
+        var second = [first[1], first[1]+options_lengths[story][options_order[1]+'-length']];
+        var third = [second[1]+or, second[1]+or+options_lengths[story][options_order[2]+'-length']];
+        return [first, second, third];
+    }
+
+    // -------- End helper functions -------------------------------------------
+
+    // Define common (non-test-trial) frames
+    let frames = {
         "exit-survey": {
             "kind": "exp-lookit-exit-survey",
             "debriefing": {
@@ -257,47 +296,120 @@
                     "title": "For parents"
                 }
             }
+        }
+    };
+
+
+    // Start off the frame sequence with config/consent frames; we'll add test
+    // trials as we construct them
+    let frame_sequence = [];
+
+    let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer'];
+    let conditions = ['aligned', 'misaligned'];
+    let options = ['c', 'l', 'nc'];
+    let full = {
+        'c': '/large_compliance.jpg',
+        'l': '/large_loophole.jpg',
+        'nc': '/large_noncompliance.jpg'
+    };
+    let options_lengths = {
+
+        'tablet': 
+        {
+            'intro-length': 5.72,
+            'c-length': 8.23,
+            'l-length': 6.68,
+            'nc-length': 5.4
         },
-        "stories": {
+        'computer': 
+        {
+            'intro-length': 6.16,
+            'c-length': 6.27,
+            'l-length': 8.0,
+            'nc-length': 5.38
+        },
+        'room': 
+        {
+            'intro-length': 7.1,
+            'c-length': 7.04,
+            'l-length': 6.63,
+            'nc-length': 6.16
+        },
+        'writing':
+        {
+            'intro-length': 6.76,
+            'c-length': 5.69,
+            'l-length': 4.82,
+            'nc-length': 6.21
+        },
+        'jumping':
+        {
+            'intro-length': 7.25,
+            'c-length': 5.57,
+            'l-length': 8.08,
+            'nc-length': 5.05
+        },
+        'outside': 
+        {
+            'intro-length': 6.85,
+            'c-length': 6.1,
+            'l-length': 6.53,
+            'nc-length': 6.31
+        }
+    };
+
+    // Choose a random starting point and order for the category pairings
+    let ordered_stories = shuffle(stories);
+
+    for (iTrial = 0; iTrial < 6; iTrial++) {
+
+        let this_story = ordered_stories[iTrial];
+        let this_condition = conditions[Math.floor(Math.random() * 2)]; //just 0 or 1
+        let options_order = shuffle(options);
+        let options_order_name = options_order.join('-');
+        let highlights = highlight_lengths(options_lengths, this_story, options_order);
+        console.log(highlights);
+
+        thisTrial = {
             "kind": "group",
             "sampler": "random-parameter-set",
             "frameList": [
                 {
-                    "audio": "story_intro",
+                    "audio": this_story + '/story_intro',
                     "images": [
                         {
                             "id": "story-intro",
-                            "src": "noParent.jpg",
+                            "src": this_story + "/noParent.jpg",
                             "position": "fill"
                         }
                     ]
                 },
                 {
-                    "audio": "parent_combined",
+                    "audio": this_story + '/parent_combined',
                     "images": [
                         {
                             "id": "story-parent",
-                            "src": "parent.jpg",
+                            "src": this_story + "/parent.jpg",
                             "position": "fill"
                         }
                     ]
                 },
                 {
-                    "audio": "parent-wants",
+                    "audio": this_story + '/' + this_condition + '_combined',
                     "images": [
                         {
                             "id": "story-parent-wants",
-                            "src": "parent.jpg",
+                            "src": this_story + "/parent.jpg",
                             "position": "fill"
                         }
                     ]
                 },
                 {
-                    "audio": "options_combined",
+                    "audio": this_story + "/" + options_order_name,
                     "images": [
                         {
                             "id": "option1",
-                            "src": "compliance.jpg",
+                            "src": this_story + full[options_order[0]],
                             "top": 5,
                             "left": 5,
                             "width": 30,
@@ -305,7 +417,7 @@
                         },
                         {
                             "id": "option2",
-                            "src": "loophole.jpg",
+                            "src": this_story + full[options_order[1]],
                             "top": 35,
                             "left": 35,
                             "width": 30,
@@ -313,7 +425,7 @@
                         },
                         {
                             "id": "option3",
-                            "src": "noncompliance.jpg",
+                            "src": this_story + full[options_order[2]],
                             "top": 65,
                             "left":65,
                             "width": 30,
@@ -322,15 +434,17 @@
                     ],
                     "highlights": [
                         {
-                            "range": "FIRST-OPTION-HIGHLIGHT",
-                            "imageId": "option1"
+                            "range": highlights[0],
+                            "imageId": "option1",
+                            "color": "red"
                         },
                         {
-                            "range": "SECOND-OPTION-HIGHLIGHT",
-                            "imageId": "option2"
+                            "range": highlights[1],
+                            "imageId": "option2",
+                            "color": "red"
                         },
                         {
-                            "range": "THIRD-OPTION-HIGHLIGHT",
+                            "range": highlights[2],
                             "imageId": "option3"
                         }
                     ],
@@ -340,7 +454,7 @@
                 }
             ],
             "commonFrameProperties": {
-                "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/test_tablet/",
+                "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
                 "kind": "exp-lookit-images-audio",
                 "id": "storybook-group",
                 "audioTypes": [
@@ -357,27 +471,21 @@
                     "title": "For parents"
                 }
             },
-            "parameterSets": [
-                {
-                    "BASE-DIRECTORY": "https://raw.githubusercontent.com/buksters/WHN/main/test_tablet/",
-                    "FIRST-OPTION-HIGHLIGHT": [
-                        5.7,
-                        14
-                    ],
-                    "SECOND-OPTION-HIGHLIGHT": [
-                        14,
-                        20.6
-                    ],
-                    "THIRD-OPTION-HIGHLIGHT": [
-                        23,
-                        28
-                    ]
-                }
-            ]
-        }
-    },
-    "sequence": [
-        "stories",
-        "exit-survey"
-    ]
+        };
+
+        // Store this frame in frames and in the sequence
+        frameId = 'test-trial-' + (iTrial + 1);
+        frames[frameId] = thisTrial;
+        frame_sequence.push(frameId);
+    }
+
+    // Finish up the frame sequence with the exit survey
+    // frame_sequence = frame_sequence.concat(['exit-survey']);
+
+    // Return a study protocol with "frames" and "sequence" fields just like when
+    // defining the protocol in JSON only
+    return {
+        frames: frames,
+        sequence: frame_sequence
+    };
 }
