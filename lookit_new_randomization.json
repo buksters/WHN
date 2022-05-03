@@ -259,9 +259,8 @@
             }
         },
         "stories": {
-            "kind": "choice",
+            "kind": "group",
             "sampler": "random-parameter-set",
-            "baseDir": "BASE-DIRECTORY",
             "frameList": [
                 {
                     "audio": "story_intro",
@@ -341,6 +340,7 @@
                 }
             ],
             "commonFrameProperties": {
+                "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/test_tablet/",
                 "kind": "exp-lookit-images-audio",
                 "id": "storybook-group",
                 "audioTypes": [
@@ -359,7 +359,7 @@
             },
             "parameterSets": [
                 {
-                    "BASE-DIRECTORY": "https://raw.githubusercontent.com/buksters/WHN/main/tablet/",
+                    "BASE-DIRECTORY": "https://raw.githubusercontent.com/buksters/WHN/main/test_tablet/",
                     "FIRST-OPTION-HIGHLIGHT": [
                         5.7,
                         14
