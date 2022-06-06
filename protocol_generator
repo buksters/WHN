@@ -304,7 +304,7 @@ function generateProtocol(child, pastSessions) {
     // trials as we construct them
     let frame_sequence = [];
 
-    let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer'];
+    let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
     let conditions = ['aligned', 'misaligned'];
     let options = ['c', 'l', 'nc'];
     let full = {
@@ -355,16 +355,59 @@ function generateProtocol(child, pastSessions) {
             'c-length': 6.1,
             'l-length': 6.53,
             'nc-length': 6.31
+        },
+        'peas':
+        {
+            'intro-length': 6.27,
+            'c-length': 5.27,
+            'l-length': 4.99,
+            'nc-length': 5.35
+        },
+        'popcorn':
+        {
+            'intro-length': 6.44,
+            'c-length': 4.5,
+            'l-length': 6.76,
+            'nc-length': 4.37
+        },
+        'jacket':
+        {
+            'intro-length': 6.78,
+            'c-length': 4.33,
+            'l-length': 5.03,
+            'nc-length': 4.59
+        },
+        'tub':
+        {
+            'intro-length': 7.08,
+            'c-length': 5.99,
+            'l-length': 7.49,
+            'nc-length': 5.07
+        },
+        'laundry':
+        {
+            'intro-length': 6.38,
+            'c-length': 4.93,
+            'l-length': 4.61,
+            'nc-length': 4.78
+        },
+        'm&ms':
+        {
+            'intro-length': 6.4,
+            'c-length': 4.95,
+            'l-length': 5.05,
+            'nc-length': 4.67
         }
     };
 
     // Choose a random starting point and order for the category pairings
     let ordered_stories = shuffle(stories);
+    let conditions_order = shuffle([0,0,0,1,1,1]);
 
     for (iTrial = 0; iTrial < 6; iTrial++) {
 
         let this_story = ordered_stories[iTrial];
-        let this_condition = conditions[Math.floor(Math.random() * 2)]; //just 0 or 1
+        let this_condition = conditions[conditions_order[iTrial]]; //0 or 1
         let options_order = shuffle(options);
         let options_order_name = options_order.join('-');
         let highlights = highlight_lengths(options_lengths, this_story, options_order);

@@ -363,7 +363,7 @@
                     "STORY-INTRO-IMAGE": "stories/tablet/noParent.jpg",
                     "STORY-PARENT-AUDIO": "tablet/parent_combined",
                     "STORY-PARENT-IMAGE": "stories/tablet/parent.jpg",
-                    "STORY-PARENT-WANTS-AUDIO": "tablet/" + "ALIGNMENT#PERM",
+                    "STORY-PARENT-WANTS-AUDIO": "tablet/parent_wants",
                     "STORY-OPTIONS-AUDIO": "tablet/options_combined",
                     "STORY-COMPLIANCE-IMAGE": "stories/tablet/large_compliance.jpg",
                     "STORY-LOOPHOLE-IMAGE": "stories/tablet/large_loophole.jpg",
@@ -384,6 +384,7 @@
             ],
             "parameters": {
                 "ALIGNMENT": ["aligned_combined", "misaligned_combined"]
+                
             }
 
         }
