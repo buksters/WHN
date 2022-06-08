@@ -508,7 +508,7 @@ function generateProtocol(child, pastSessions) {
                     "mp3"
                 ],
                 "autoProceed": false,
-                "canMakeChoiceBeforeAudioFinished": true,
+                "canMakeChoiceBeforeAudioFinished": false,
                 "doRecording": false,
                 "parentTextBlock": {
                     "css": {
