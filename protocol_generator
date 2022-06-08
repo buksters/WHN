@@ -402,7 +402,11 @@ function generateProtocol(child, pastSessions) {
 
     // Choose a random starting point and order for the category pairings
     let ordered_stories = shuffle(stories);
-    let conditions_order = shuffle([0,0,0,1,1,1]);
+    let first_two = shuffle([0,1]);
+    let last_four = shuffle([0,0,1,1]);
+    let conditions_order = [...first_two, ...last_four];
+    console.log("ORDER CHECK");
+    console.log(conditions_order);
 
     for (iTrial = 0; iTrial < 6; iTrial++) {
 
