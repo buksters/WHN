@@ -302,7 +302,7 @@ function generateProtocol(child, pastSessions) {
 
     // Start off the frame sequence with config/consent frames; we'll add test
     // trials as we construct them
-    let frame_sequence = [];
+    let frame_sequence = ["video-config", "video-consent", "instructions"];
 
     let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
     let conditions = ['aligned', 'misaligned'];
@@ -415,12 +415,31 @@ function generateProtocol(child, pastSessions) {
         let options_order = shuffle(options);
         let options_order_name = options_order.join('-');
         let highlights = highlight_lengths(options_lengths, this_story, options_order);
-        console.log(highlights);
+
+        if (iTrial == 0) 
+        {
+            let filler_audio = 'first_story';
+        }
+        else {
+            let filler_audio = 'next_story';
+        }
+        
+        console.log(this_condition);
 
         thisTrial = {
             "kind": "group",
             "sampler": "random-parameter-set",
             "frameList": [
+                {
+                    "audio": filler_audio,
+                    "images": [
+                        {
+                            "id": "filler",
+                            "src":  "filler.jpg",
+                            "position": "fill"
+                        }
+                    ]
+                },
                 {
                     "audio": this_story + '/story_intro',
                     "images": [
