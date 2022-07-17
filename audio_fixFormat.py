@@ -4,6 +4,8 @@
 Created on Mon May  2 13:25:44 2022
 
 @author: ibuki
+
+this script makes sure that all recordings are in mp3 format, since recorder default is m4a
 """
 
 import pydub
@@ -24,7 +26,7 @@ half_recorded = ['tablet', 'computer', 'room', 'writing', 'jumping', 'outside']
 sound_dir = '/Users/ibuki/Documents/GitHub/WHN/mp3' 
 os.chdir(sound_dir)
 
-for story in half_recorded:
+for story in all_stories:
     prev_files = glob.glob(f'{story}/*')
     for f in prev_files:
         if f[-3:]=='m4a':

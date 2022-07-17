@@ -30,8 +30,8 @@ function generateProtocol(child, pastSessions) {
         var intro = options_lengths[story][intro_l];
         var or = 0.85;
         var first = [intro, intro+options_lengths[story][options_order[0]+'-length']];
-        var second = [first[1], first[1]+options_lengths[story][options_order[1]+'-length']];
-        var third = [second[1]+or, second[1]+or+options_lengths[story][options_order[2]+'-length']];
+        var second = [first[1]+or, first[1]+options_lengths[story][options_order[1]+'-length']+or];
+        var third = [second[1]+2*or, second[1]+2*or+options_lengths[story][options_order[2]+'-length']];
         return [first, second, third];
     }
 
@@ -120,6 +120,16 @@ function generateProtocol(child, pastSessions) {
         "warmup": {
             "kind": "group",
             "frameList": [
+                {
+                    "audio": "study_explanation",
+                    "images": [
+                        {
+                            "id": "explanation",
+                            "src": "filler.jpg",
+                            "position": "fill"
+                        }
+                    ]
+                },
                 {
                     "audio": "RockySnackIntro",
                     "images": [
@@ -302,7 +312,7 @@ function generateProtocol(child, pastSessions) {
 
     // Start off the frame sequence with config/consent frames; we'll add test
     // trials as we construct them
-    let frame_sequence = ["video-config", "video-consent", "instructions"];
+    let frame_sequence = ["video-config", "video-consent", "instructions", "warmup"];
 
     let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
     let conditions = ['aligned', 'misaligned'];
@@ -411,8 +421,8 @@ function generateProtocol(child, pastSessions) {
     for (iTrial = 0; iTrial < 6; iTrial++) {
 
         let this_story = ordered_stories[iTrial];
-        let this_condition = conditions[conditions_order[iTrial]]; //0 or 1
-        let options_order = shuffle(options);
+        let this_condition = conditions[conditions_order[iTrial]]; //misaligned or aligned
+        let options_order = shuffle(options); 
         let options_order_name = options_order.join('-');
         let highlights = highlight_lengths(options_lengths, this_story, options_order);
         let filler_audio = '';
