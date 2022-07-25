@@ -101,6 +101,6 @@ def create_audio(stories):
         #       loop: {length_l},
         #       noncomp: {length_nc}''')
 
-create_audio(['peas', 'laundry'])
+create_audio(all_stories)
 
       

@@ -31,7 +31,7 @@ function generateProtocol(child, pastSessions) {
         var or = 0.85;
         var first = [intro, intro+options_lengths[story][options_order[0]+'-length']];
         var second = [first[1]+or, first[1]+options_lengths[story][options_order[1]+'-length']+or];
-        var third = [second[1]+2*or, second[1]+2*or+options_lengths[story][options_order[2]+'-length']];
+        var third = [second[1]+or, second[1]+or+options_lengths[story][options_order[2]+'-length']-.1];
         return [first, second, third];
     }
 
@@ -42,9 +42,46 @@ function generateProtocol(child, pastSessions) {
         "exit-survey": {
             "kind": "exp-lookit-exit-survey",
             "debriefing": {
-                "text": "Here is where you would enter debriefing information for the family. This is a chance to explain the purpose of your study and how the family helped; at this point it's more obvious to the participant that skimming the info is fine if they're not super-interested, so you can elaborate in ways you might have avoided ahead of time in the interest of keeping instructions short. You may want to mention the various conditions kids were assigned to if you didn't before, and try to head off any concerns parents might have about how their child 'did' on the study, especially if there are 'correct' answers that will have been obvious to a parent. <br><br> It is great if you can link people to a layperson-accessible article on a related topic - e.g., media coverage of one of your previous studies in this research program, a talk on Youtube, a parenting resource. <br><br> If you are compensating participants, restate what the compensation is (and any conditions, and let them know when to expect their payment! E.g.: To thank you for your participation, we'll be emailing you a $4 Amazon gift card - this should arrive in your inbox within the next week after we confirm your consent video and check that your child is in the age range for this study. (If you don't hear from us by then, feel free to reach out!) If you participate again with another child in the age range, you'll receive one gift card per child.",
+                "text": "Children do not always want to do what they are asked and they must make decisions about whether or not to go along with what another person wants. How do children handle situations where their goals are at odds with other people’s goals? In this study, we explored children’s predictions about how a child in a story based on what the parent in the story says and on whether or not the child’s goals conflict with the parent’s goals. Findings from this study will help us better understand how children balance their own and others’ needs and how misunderstandings can occur in communication, whether honestly or on purpose. <br><br> To thank you for your participation, we'll be emailing you a $5 Amazon gift card (via a code that can be entered online) and certificate of participation. This should arrive in your inbox within the next week after we confirm your consent video and check that your child is in the age range for this study. (If you don't hear from us by then, feel free to reach out!) If you participate again with another child in the age range, you'll receive one gift card per child.",
                 "title": "Thank you!"
             }
+        },
+        "text-instructions1": {
+            "kind": "exp-lookit-instructions",
+            "blocks": [{
+                    "title": "Thank you for your interest in our study, 'What Happens Next?'",
+                    "text": "Before we get started, make sure your child is sitting with you and you can both see the screen!\n \nHere's a quick summary of what's about to happen:",
+                    "listblocks": [{
+                            "text": "1. Webcam Setup and Video Consent. First, we'll be checking that your webcam is working. Then you and your child will give your consent to participate in this research."
+                        },
+                        {
+                            "text": "2. Study Overview: Here, you can read a little more about what your child will be doing in this study, along with some other important details about the game."
+                        },
+                        {
+                            "text": "3. Start the Study: When you click the 'Start the game!' button on the Study Overview page, the study will begin! This study will take about 10-15 minutes in total."
+                        }
+                    ]
+                },
+                {
+                    "text": "Thank you so much for helping us with our science! We hope you and your child have fun."
+                },
+                {
+                    "text": "(Below, you can watch a quick greeting video from our research staff!)",
+                    "mediaBlock": {
+                    "width": "30",
+                    "isVideo": true,
+                    "sources": [{
+                            "src": "https://raw.githubusercontent.com/buksters/WHN/main/mp4/intro_video2.mp4",
+                            "type": "video/mp4"
+                        }
+                    ],
+                    "mustPlay": false
+                }
+                }
+            ],
+            "showWebcam": false,
+            "nextButtonText": "Continue to Webcam Setup",
+            "showPreviousButton": false
         },
         "instructions": {
             "kind": "exp-lookit-instructions",
@@ -102,20 +139,104 @@ function generateProtocol(child, pastSessions) {
         },
         "video-config": {
             "kind": "exp-video-config",
-            "troubleshootingIntro": "This is a standard frame you probably want to put at the very start of your study. You can customize this bit of text; the rest is standard and maintained by Lookit."
+            "troubleshootingIntro": "Please see below for common troubleshooting issues and solutions:"
         },
         "video-consent": {
             "kind": "exp-lookit-video-consent",
             "template": "consent_005",
-            "PIName": "Lookit Tutorial Participant",
-            "PIContact": "Jane Smith at (123) 456-7890",
+            "PIName": "Sophie Bridgers",
+            "PIContact": "Sophie Bridgers at secb@mit.edu",
             "include_databrary": true,
             "risk_statement": "There are no expected risks to participation.",
-            "datause": "We are interested in how your child uses statistical evidence to figure out the cause of an event. A research assistant will watch your video and mark down your child's answer to the question at the end of the story, and as well as other information such as interactions between you and your child during the story.",
-            "payment": "After you finish the study, we will email you a code to a $5 Amazon gift card within approximately three days. To be eligible for the gift card your child must be in the age range for this study, you need to submit a valid consent statement, and we need to see that there is a child with you. But we will send a gift card even if you do not finish the whole study or we are not able to use your child's data! There are no other direct benefits to you or your child from participating, but we hope you will enjoy the experience.",
-            "purpose": "This study is about how children use statistical information to adjust their beliefs about cause and effect.",
-            "procedures": "In this study your child will hear some stories about children and their parents. In each story, there will be three options for what the child will do next in the story, and your child will be asked to figure out which one the child in the story will do. We will ask you (the parent) to avoid discussing or responding to anything on the screen. There are no anticipated risks associated with participating.",
-            "institution": "Science University"
+            "datause": "We are interested in your child's predictions about how a child in a story acts based on what the parent in the story says and on whether or not the child’s goals conflict with the parent’s goals. Your child's answers will be recorded for data analysis.",
+            "payment": "After you finish the study, we will email you a $5 Amazon gift card (via a code that can be entered online) and certificate of participation within seven days. To be eligible for the gift card and certificate, (1) your child must be in the age range for this study, (2) English is (one of) your child's first language(s), (3) you need to submit a valid consent statement, and (4) we need to see that there is a child with you during the experiment. If you or your child do not wish to complete the entire study or for some reason we are unable to use your child's data, we will still send you and your child a gift card and certificate. There are no other direct benefits to you or your child from participating, but we hope you will enjoy the experience.",
+            "purpose": "This study is about how children handle situations where their goals are at odds with other people’s goals.",
+            "procedures": "In this study you and your child will see and hear stories with fun illustrations of real-life situations. In each story, a parent will make a request of their child. Your child will be told what the parent wants and what the child wants. Your child will then be asked to predict how the child in the story will respond to what their parent said from three possibilities displayed on the screen.",
+            "institution": "Massachusetts Institute of Technology"
+        },
+        "text-instructions2": {
+            "kind": "exp-lookit-instructions",
+            "blocks": [{
+                "title": "Study overview",
+                "listblocks": [{
+                        "text": "Your child will watch and listen to six different stories of children and their parents."
+                    },
+                    {
+                        "text": "At the end of each story, your child will be asked to choose from three different options for what the child in the story might do next."
+                    },
+                    {
+                        "text": "You or your child can click through to the next question after your child has answered."
+                    },
+                    {
+                        "text": "This study will take about 10 to 15 minutes to complete."
+                    },
+                    {
+                        "text": "To ensure that everything goes smoothly, please close other browser tabs and windows now."
+                    },
+                    {
+                        "text": "After you click the 'Start the game!' button on the next page, your browser will go into fullscreen mode. Please keep your browser fullscreened for the duration of the study."
+                    }
+                ]
+            }],
+            "showWebcam": false,
+            "nextButtonText": "Next page",
+            "showPreviousButton": false
+        },
+        "text-instructions3": {
+            "kind": "exp-lookit-instructions",
+            "blocks": [{
+                    "title": "Study overview continued",
+                    "text": "\n"
+                },
+                {
+                    "title": "Remember: There are no wrong answers! We're interested in how children think about these questions, which may be different from how adults think about them. We'll need your help!",
+                    "listblocks": [{
+                            "text": "It's important not to 'give away' any of your own thoughts about the answers-- you can say 'Okay!', but not 'That's right!' or 'Hmm, are you sure?'"
+                        },
+                        {
+                            "text": "It's natural to want to interact about the story and questions, but please hold discussion until the end of the study."
+                        },
+                        {
+                            "text": "If your child gets distracted for a bit, that's fine - please just encourage them to keep watching and listening."
+                        },
+                        {
+                            "text": "If your child doesn't answer a question right away, you can encourage them to answer - just don't tell them what you think the answer is."
+                        }
+                    ]
+                },
+                {
+                    "text": "Before starting, make sure your audio is working.",
+                    "title": "Test your audio",
+                    "mediaBlock": {
+                        "text": "You should hear 'Ready to go!'",
+                        "isVideo": false,
+                        "sources": [
+                            {
+                                "src": "https://s3.amazonaws.com/lookitcontents/exp-physics-final/audio/ready.mp3",
+                                "type": "audio/mp3"
+                            },
+                            {
+                                "src": "https://s3.amazonaws.com/lookitcontents/exp-physics-final/audio/ready.ogg",
+                                "type": "audio/ogg"
+                            }
+                        ],
+                        "mustPlay": true,
+                        "warningText": "Please try playing the sample audio."
+                    }
+                }
+            ],
+            "mustPlay": false,
+            "showWebcam": false,
+            "nextButtonText": "Start the game!",
+            "showPreviousButton": false
+        },
+        "start-recording": {
+            "kind": "exp-lookit-start-recording",
+            "displayFullscreen": true
+        },
+        "stop-recording": {
+            "kind": "exp-lookit-stop-recording",
+            "displayFullscreen": true
         },
         "warmup": {
             "kind": "group",
@@ -297,7 +418,7 @@ function generateProtocol(child, pastSessions) {
                     "ogg"
                 ],
                 "autoProceed": false,
-                "doRecording": false,
+                "doRecording": true,
                 "parentTextBlock": {
                     "css": {
                         "font-size": "1.5em"
@@ -312,7 +433,7 @@ function generateProtocol(child, pastSessions) {
 
     // Start off the frame sequence with config/consent frames; we'll add test
     // trials as we construct them
-    let frame_sequence = ["video-config", "video-consent", "instructions", "warmup"];
+    let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "warmup"];
 
     let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
     let conditions = ['aligned', 'misaligned'];
@@ -557,7 +678,7 @@ function generateProtocol(child, pastSessions) {
     }
 
     // Finish up the frame sequence with the exit survey
-    // frame_sequence = frame_sequence.concat(['exit-survey']);
+    frame_sequence = frame_sequence.concat(['exit-survey']);
 
     // Return a study protocol with "frames" and "sequence" fields just like when
     // defining the protocol in JSON only
