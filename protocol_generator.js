@@ -431,7 +431,8 @@ function generateProtocol(child, pastSessions) {
 
     // Start off the frame sequence with config/consent frames; we'll add test
     // trials as we construct them
-    let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "warmup"];
+    // let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "warmup"];
+    let frame_sequence = ["warmup"];
 
     let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
     let conditions = ['aligned', 'misaligned'];
