@@ -68,7 +68,7 @@ function generateProtocol(child, pastSessions) {
                 {
                     "text": "(Below, you can watch a quick greeting video from our research staff!)",
                     "mediaBlock": {
-                    "width": "30",
+                    "width": "20",
                     "isVideo": true,
                     "sources": [{
                             "src": "https://raw.githubusercontent.com/buksters/WHN/main/mp4/intro_video2.mp4",
@@ -262,7 +262,6 @@ function generateProtocol(child, pastSessions) {
                         }
                     ]
                 },
-                
                {
                     "audio": "RockySnackChoices",
                     "images": [
@@ -277,7 +276,7 @@ function generateProtocol(child, pastSessions) {
                         {
                             "id": "option1",
                             "src": "strawberry_cropped.jpg",
-                            "top": 60,
+                            "top": 64,
                             "left": 10,
                             "width": 13,
                             "displayDelayMs": 0,
@@ -286,9 +285,9 @@ function generateProtocol(child, pastSessions) {
                         {
                             "id": "option2",
                             "src": "apple.jpg",
-                            "top": 60,
+                            "top": 64,
                             "left": 40,
-                            "width": 14,
+                            "width": 12,
                             "displayDelayMs": 0,
                             "feedbackAudio": "RockySnackFollowUp"
                         },
@@ -326,7 +325,6 @@ function generateProtocol(child, pastSessions) {
                         }
                     ],
                     "autoProceed": false,
-                    "doRecording": false,
                     "choiceRequired": true,
                     "allowUserPause": false
                 },
@@ -336,12 +334,12 @@ function generateProtocol(child, pastSessions) {
                         {
                             "id": "RockyHide",
                             "src": "RockyFox.jpg",
-                            "height": 80,
-                            "left": 10
+                            "top": 15,
+                            "height": 70,
+                            "left": 15
                         }
                     ]
                 },
-                
                {
                     "audio": "RockyHideOptions",
                     "images": [
@@ -356,7 +354,7 @@ function generateProtocol(child, pastSessions) {
                         {
                             "id": "option1",
                             "src": "rock.jpg",
-                            "top": 67,
+                            "top": 69,
                             "left": 10,
                             "width": 20,
                             "displayDelayMs": 0,
@@ -374,7 +372,7 @@ function generateProtocol(child, pastSessions) {
                         {
                             "id": "option3",
                             "src": "cave.jpg",
-                            "top": 67,
+                            "top": 71,
                             "left":70,
                             "width": 20,
                             "displayDelayMs": 0,
@@ -405,7 +403,6 @@ function generateProtocol(child, pastSessions) {
                         }
                     ],
                     "autoProceed": false,
-                    "doRecording": false,
                     "choiceRequired": true,
                     "allowUserPause": false
                 }
@@ -418,12 +415,13 @@ function generateProtocol(child, pastSessions) {
                     "ogg"
                 ],
                 "autoProceed": false,
+                "showPreviousButton": false,
                 "doRecording": true,
                 "parentTextBlock": {
                     "css": {
-                        "font-size": "1.5em"
+                        "font-size": "1.25em"
                     },
-                    "text": "Please don't respond to anything on the screen. Feel free to replay the audio if your child was distracted.",
+                    "text": "Please don’t respond to anything on the screen. Feel free to replay the audio if your child was distracted. \nPlease just say ‘Okay!’ when your child answers - don’t give any hints or say whether you agree!",
                     "title": "For parents"
                 }
             }
@@ -433,7 +431,7 @@ function generateProtocol(child, pastSessions) {
 
     // Start off the frame sequence with config/consent frames; we'll add test
     // trials as we construct them
-    let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "warmup"];
+    let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "warmup"];
 
     let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
     let conditions = ['aligned', 'misaligned'];
@@ -442,6 +440,11 @@ function generateProtocol(child, pastSessions) {
         'c': '/large_compliance.jpg',
         'l': '/large_loophole.jpg',
         'nc': '/large_noncompliance.jpg'
+    };
+    let options_full = {
+        'c': 'compliance',
+        'l': 'loophole',
+        'nc': 'noncompliance'
     };
     let options_lengths = {
 
@@ -611,7 +614,8 @@ function generateProtocol(child, pastSessions) {
                             "top": 5,
                             "left": 5,
                             "width": 30,
-                            "displayDelayMs": 0
+                            "displayDelayMs": 0,
+                            "feedbackAudio": this_story + "/" + options_full[options_order[0]],
                         },
                         {
                             "id": "option2",
@@ -619,7 +623,8 @@ function generateProtocol(child, pastSessions) {
                             "top": 35,
                             "left": 35,
                             "width": 30,
-                            "displayDelayMs": 0
+                            "displayDelayMs": 0,
+                            "feedbackAudio": this_story + "/" + options_full[options_order[1]]
                         },
                         {
                             "id": "option3",
@@ -627,7 +632,8 @@ function generateProtocol(child, pastSessions) {
                             "top": 65,
                             "left":65,
                             "width": 30,
-                            "displayDelayMs": 0
+                            "displayDelayMs": 0,
+                            "feedbackAudio": this_story + "/" + options_full[options_order[2]]
                         }
                     ],
                     "highlights": [
@@ -659,6 +665,7 @@ function generateProtocol(child, pastSessions) {
                     "mp3"
                 ],
                 "autoProceed": false,
+                "showPreviousButton": false,
                 "canMakeChoiceBeforeAudioFinished": false,
                 "doRecording": false,
                 "parentTextBlock": {
