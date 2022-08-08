@@ -242,7 +242,7 @@ function generateProtocol(child, pastSessions) {
             "kind": "exp-lookit-images-audio",
             "frameList": [
                 {
-                    "audio": "study_explanation", //add thank you audio
+                    "audio": "thankyou", //add thank you audio
                     "images": [
                         {
                             "id": "thankyou",
@@ -434,7 +434,7 @@ function generateProtocol(child, pastSessions) {
                 "doRecording": true,
                 "parentTextBlock": {
                     "css": {
-                        "font-size": "1.25em"
+                        "font-size": "1em"
                     },
                     "text": "Please don’t respond to anything on the screen. Feel free to replay the audio if your child was distracted. \nPlease just say ‘Okay!’ when your child answers - don’t give any hints or say whether you agree!",
                     "title": "For parents"
@@ -686,9 +686,9 @@ function generateProtocol(child, pastSessions) {
                 "doRecording": false,
                 "parentTextBlock": {
                     "css": {
-                        "font-size": "1.5em"
+                        "font-size": "1em"
                     },
-                    "text": "Please don't respond to anything on the screen. Feel free to replay the audio if your child was distracted.",
+                    "text": "Please don’t respond to anything on the screen. Feel free to replay the audio if your child was distracted. \nPlease just say ‘Okay!’ when your child answers - don’t give any hints or say whether you agree!",
                     "title": "For parents"
                 }
             },
