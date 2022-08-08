@@ -238,6 +238,21 @@ function generateProtocol(child, pastSessions) {
             "kind": "exp-lookit-stop-recording",
             "displayFullscreen": true
         },
+        "thankyou": {
+            "kind": "exp-lookit-images-audio",
+            "frameList": [
+                {
+                    "audio": "study_explanation", //add thank you audio
+                    "images": [
+                        {
+                            "id": "thankyou",
+                            "src": "thankyou.jpg",
+                            "position": "fill"
+                        }
+                    ]
+                }
+            ]
+        },
         "warmup": {
             "kind": "group",
             "frameList": [
@@ -686,7 +701,7 @@ function generateProtocol(child, pastSessions) {
     }
 
     // Finish up the frame sequence with the exit survey
-    frame_sequence = frame_sequence.concat(['exit-survey']);
+    frame_sequence = frame_sequence.concat(['thankyou', 'exit-survey']);
 
     // Return a study protocol with "frames" and "sequence" fields just like when
     // defining the protocol in JSON only
