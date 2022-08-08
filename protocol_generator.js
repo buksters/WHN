@@ -240,18 +240,15 @@ function generateProtocol(child, pastSessions) {
         },
         "thankyou": {
             "kind": "exp-lookit-images-audio",
-            "frameList": [
+            "audio": "thankyou",
+            "images": [
                 {
-                    "audio": "thankyou", //add thank you audio
-                    "images": [
-                        {
-                            "id": "thankyou",
-                            "src": "thankyou.jpg",
-                            "position": "fill"
-                        }
-                    ]
+                    "id": "thankyou",
+                    "src": "thankyou.jpg",
+                    "position": "fill"
                 }
-            ]
+            ],
+            "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
         },
         "warmup": {
             "kind": "group",
