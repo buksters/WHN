@@ -631,7 +631,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 5,
                             "width": 30,
                             "displayDelayMs": 0,
-                            "feedbackAudio": this_story + "/" + options_full[options_order[0]],
+                            "feedbackAudio": this_story + "/" + options_full[options_order[0]] + "_repeat",
                         },
                         {
                             "id": "option2",
@@ -640,7 +640,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 35,
                             "width": 30,
                             "displayDelayMs": 0,
-                            "feedbackAudio": this_story + "/" + options_full[options_order[1]]
+                            "feedbackAudio": this_story + "/" + options_full[options_order[1]] + "_repeat"
                         },
                         {
                             "id": "option3",
@@ -649,7 +649,7 @@ function generateProtocol(child, pastSessions) {
                             "left":65,
                             "width": 30,
                             "displayDelayMs": 0,
-                            "feedbackAudio": this_story + "/" + options_full[options_order[2]]
+                            "feedbackAudio": this_story + "/" + options_full[options_order[2]]+ "_repeat"
                         }
                     ],
                     "highlights": [
