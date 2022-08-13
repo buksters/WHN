@@ -158,8 +158,12 @@ function generateProtocol(child, pastSessions) {
             "kind": "exp-lookit-instructions",
             "blocks": [{
                 "title": "Study overview",
+                "image": {
+                    "alt": "Study flowchart",
+                    "src": "https://raw.githubusercontent.com/ilonabass/lookit-stimuli-template/master/img/study_overview.jpg"
+                },
                 "listblocks": [{
-                        "text": "Your child will watch and listen to six different stories of children and their parents."
+                        "text": "After two warmup stories, your child will watch and listen to six different stories of children and their parents."
                     },
                     {
                         "text": "At the end of each story, your child will be asked to choose from three different options for what the child in the story might do next."
@@ -185,8 +189,8 @@ function generateProtocol(child, pastSessions) {
         "text-instructions3": {
             "kind": "exp-lookit-instructions",
             "blocks": [{
-                    "title": "Study overview continued",
-                    "text": "\n"
+                    "title": "Important message for parents",
+                    "text": "Please read all of the following before proceeding."
                 },
                 {
                     "title": "Remember: There are no wrong answers! We're interested in how children think about these questions, which may be different from how adults think about them. We'll need your help!",
@@ -194,14 +198,20 @@ function generateProtocol(child, pastSessions) {
                             "text": "It's important not to 'give away' any of your own thoughts about the answers-- you can say 'Okay!', but not 'That's right!' or 'Hmm, are you sure?'"
                         },
                         {
+                            "text": "If your child doesn’t answer a question right away, you can encourage them to answer - just don’t tell them what you think the answer is."
+                        },
+                        {
                             "text": "It's natural to want to interact about the story and questions, but please hold discussion until the end of the study."
                         },
                         {
-                            "text": "If your child gets distracted for a bit, that's fine - please just encourage them to keep watching and listening."
+                            "text": "If your child gets distracted for a bit, that’s fine - please just encourage them to keep watching and listening. You can also replay the audio if needed."
                         },
                         {
-                            "text": "If your child doesn't answer a question right away, you can encourage them to answer - just don't tell them what you think the answer is."
-                        }
+                            "text": "For most questions, there will be answer choices on the screen that your child can click. If your child can click on their own, please let them do so. If they can’t click on their own, they can point to their choice, and you can click for them."
+                        },
+                        {
+                            "text": "Sometimes your child will be asked to explain their answer out loud. If they are hesitant or say they don’t know, you can encourage them to answer but it is also ok if they don’t respond."
+                        },
                     ]
                 },
                 {
@@ -249,6 +259,28 @@ function generateProtocol(child, pastSessions) {
                 }
             ],
             "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
+            "showPreviousButton": false,
+        },
+        "next_practice": {
+            "kind": "exp-lookit-images-audio",
+            "audio": "next_explanation",
+            "images": [
+                {
+                    "id": "filler",
+                    "src": "filler.jpg",
+                    "position": "fill"
+                },
+                {
+                    "id": "next_pointer",
+                    "src": "next_pointer.jpg",
+                    "displayDelayMs": 13000,
+                    "top": 68,
+                    "left":70,
+                    "width": 19
+                }
+            ],
+            "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
+            "showPreviousButton": false,
         },
         "warmup": {
             "kind": "group",
@@ -292,7 +324,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 10,
                             "width": 13,
                             "displayDelayMs": 0,
-                            "feedbackAudio": "RockySnackFollowUp"
+                            // "feedbackAudio": "RockySnackFollowUp"
                         },
                         {
                             "id": "option2",
@@ -301,7 +333,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 40,
                             "width": 12,
                             "displayDelayMs": 0,
-                            "feedbackAudio": "RockySnackFollowUp"
+                            // "feedbackAudio": "RockySnackFollowUp"
                         },
                         {
                             "id": "option3",
@@ -310,7 +342,7 @@ function generateProtocol(child, pastSessions) {
                             "left":70,
                             "width": 19,
                             "displayDelayMs": 0,
-                            "feedbackAudio": "RockySnackFollowUp"
+                            // "feedbackAudio": "RockySnackFollowUp"
                         }
                     ],
                     "highlights": [
@@ -370,7 +402,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 10,
                             "width": 20,
                             "displayDelayMs": 0,
-                            "feedbackAudio": "RockyHideFollowUp"
+                            // "feedbackAudio": "RockyHideFollowUp"
                         },
                         {
                             "id": "option2",
@@ -379,7 +411,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 40,
                             "width": 20,
                             "displayDelayMs": 0,
-                            "feedbackAudio": "RockyHideFollowUp"
+                            // "feedbackAudio": "RockyHideFollowUp"
                         },
                         {
                             "id": "option3",
@@ -388,7 +420,7 @@ function generateProtocol(child, pastSessions) {
                             "left":70,
                             "width": 20,
                             "displayDelayMs": 0,
-                            "feedbackAudio": "RockyHideFollowUp"
+                            // "feedbackAudio": "RockyHideFollowUp"
                         }
                     ],
                     "highlights": [
@@ -433,7 +465,7 @@ function generateProtocol(child, pastSessions) {
                     "css": {
                         "font-size": "1em"
                     },
-                    "text": "Please don’t respond to anything on the screen. Feel free to replay the audio if your child was distracted. \nPlease just say ‘Okay!’ when your child answers - don’t give any hints or say whether you agree!",
+                    "text": "Please don’t respond to anything on the screen. Feel free to replay the audio if your child was distracted. Please just say ‘Okay!’ when your child answers - don’t give any hints or say whether you agree!",
                     "title": "For parents"
                 }
             }
@@ -443,8 +475,8 @@ function generateProtocol(child, pastSessions) {
 
     // Start off the frame sequence with config/consent frames; we'll add test
     // trials as we construct them
-    // let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "warmup"];
-    let frame_sequence = ["warmup"];
+    let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "next_practice", "warmup"];
+    // let frame_sequence = ["warmup"];
 
     let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
     let conditions = ['aligned', 'misaligned'];
@@ -628,7 +660,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 5,
                             "width": 30,
                             "displayDelayMs": 0,
-                            "feedbackAudio": this_story + "/" + options_full[options_order[0]] + "_repeat",
+                            "feedbackAudio": this_story + "/" + options_full[options_order[0]]
                         },
                         {
                             "id": "option2",
@@ -637,7 +669,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 35,
                             "width": 30,
                             "displayDelayMs": 0,
-                            "feedbackAudio": this_story + "/" + options_full[options_order[1]] + "_repeat"
+                            "feedbackAudio": this_story + "/" + options_full[options_order[1]]
                         },
                         {
                             "id": "option3",
@@ -646,7 +678,7 @@ function generateProtocol(child, pastSessions) {
                             "left":65,
                             "width": 30,
                             "displayDelayMs": 0,
-                            "feedbackAudio": this_story + "/" + options_full[options_order[2]]+ "_repeat"
+                            "feedbackAudio": this_story + "/" + options_full[options_order[2]]
                         }
                     ],
                     "highlights": [
@@ -685,7 +717,7 @@ function generateProtocol(child, pastSessions) {
                     "css": {
                         "font-size": "1em"
                     },
-                    "text": "Please don’t respond to anything on the screen. Feel free to replay the audio if your child was distracted. \nPlease just say ‘Okay!’ when your child answers - don’t give any hints or say whether you agree!",
+                    "text": "Please don’t respond to anything on the screen. Feel free to replay the audio if your child was distracted. Please just say ‘Okay!’ when your child answers - don’t give any hints or say whether you agree!",
                     "title": "For parents"
                 }
             },
