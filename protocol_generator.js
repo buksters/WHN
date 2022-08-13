@@ -160,9 +160,11 @@ function generateProtocol(child, pastSessions) {
                 "title": "Study overview",
                 "image": {
                     "alt": "Study flowchart",
-                    "src": "https://raw.githubusercontent.com/ilonabass/lookit-stimuli-template/master/img/study_overview.jpg"
+                    "src": "https://raw.githubusercontent.com/buksters/WHN/main/img/study_overview.jpg"
                 },
-                "listblocks": [{
+                "text": "\n",
+                "listblocks": [
+                    {
                         "text": "After two warmup stories, your child will watch and listen to six different stories of children and their parents."
                     },
                     {
@@ -261,9 +263,9 @@ function generateProtocol(child, pastSessions) {
             "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
             "showPreviousButton": false,
         },
-        "next_practice": {
+        "next-practice": {
             "kind": "exp-lookit-images-audio",
-            "audio": "next_explanation",
+            "audio": "next_instructions",
             "images": [
                 {
                     "id": "filler",
@@ -273,14 +275,21 @@ function generateProtocol(child, pastSessions) {
                 {
                     "id": "next_pointer",
                     "src": "next_pointer.jpg",
-                    "displayDelayMs": 13000,
+                    "displayDelayMs": 6000,
                     "top": 68,
-                    "left":70,
+                    "left":78,
                     "width": 19
                 }
             ],
             "baseDir": "https://raw.githubusercontent.com/buksters/WHN/main/",
             "showPreviousButton": false,
+            "parentTextBlock": {
+                "css": {
+                    "font-size": "1em"
+                },
+                "text": "Please don’t respond to anything on the screen. Feel free to replay the audio if your child was distracted. Please just say ‘Okay!’ when your child answers - don’t give any hints or say whether you agree!",
+                "title": "For parents"
+            }
         },
         "warmup": {
             "kind": "group",
@@ -475,7 +484,7 @@ function generateProtocol(child, pastSessions) {
 
     // Start off the frame sequence with config/consent frames; we'll add test
     // trials as we construct them
-    let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "next_practice", "warmup"];
+    let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "next-practice", "warmup"];
     // let frame_sequence = ["warmup"];
 
     let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
