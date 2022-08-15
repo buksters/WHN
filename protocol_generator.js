@@ -265,7 +265,7 @@ function generateProtocol(child, pastSessions) {
         },
         "next-practice": {
             "kind": "exp-lookit-images-audio",
-            "audio": "next_instructions",
+            "audio": "next_instructions_2",
             "images": [
                 {
                     "id": "filler",
@@ -275,7 +275,7 @@ function generateProtocol(child, pastSessions) {
                 {
                     "id": "next_pointer",
                     "src": "next_pointer.jpg",
-                    "displayDelayMs": 6000,
+                    "displayDelayMs": 13000,
                     "top": 68,
                     "left":78,
                     "width": 19
@@ -316,7 +316,7 @@ function generateProtocol(child, pastSessions) {
                     ]
                 },
                {
-                    "audio": "RockySnackChoices",
+                    "audio": "RockySnackOptions_2",
                     "images": [
                         {
                             "id": "cue",
@@ -333,7 +333,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 10,
                             "width": 13,
                             "displayDelayMs": 0,
-                            // "feedbackAudio": "RockySnackFollowUp"
+                            "feedbackAudio": "strawberry_feedback"
                         },
                         {
                             "id": "option2",
@@ -342,7 +342,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 40,
                             "width": 12,
                             "displayDelayMs": 0,
-                            // "feedbackAudio": "RockySnackFollowUp"
+                            "feedbackAudio": "apple_feedback"
                         },
                         {
                             "id": "option3",
@@ -351,7 +351,7 @@ function generateProtocol(child, pastSessions) {
                             "left":70,
                             "width": 19,
                             "displayDelayMs": 0,
-                            // "feedbackAudio": "RockySnackFollowUp"
+                            "feedbackAudio": "chocolate_feedback"
                         }
                     ],
                     "highlights": [
@@ -394,7 +394,7 @@ function generateProtocol(child, pastSessions) {
                     ]
                 },
                {
-                    "audio": "RockyHideOptions",
+                    "audio": "RockyHideOptions_2",
                     "images": [
                         {
                             "id": "cue",
@@ -411,7 +411,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 10,
                             "width": 20,
                             "displayDelayMs": 0,
-                            // "feedbackAudio": "RockyHideFollowUp"
+                            "feedbackAudio": "rock_feedback"
                         },
                         {
                             "id": "option2",
@@ -420,7 +420,7 @@ function generateProtocol(child, pastSessions) {
                             "left": 40,
                             "width": 20,
                             "displayDelayMs": 0,
-                            // "feedbackAudio": "RockyHideFollowUp"
+                            "feedbackAudio": "tree_feedback"
                         },
                         {
                             "id": "option3",
@@ -429,7 +429,7 @@ function generateProtocol(child, pastSessions) {
                             "left":70,
                             "width": 20,
                             "displayDelayMs": 0,
-                            // "feedbackAudio": "RockyHideFollowUp"
+                            "feedbackAudio": "cave_feedback"
                         }
                     ],
                     "highlights": [
