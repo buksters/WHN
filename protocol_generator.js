@@ -42,7 +42,7 @@ function generateProtocol(child, pastSessions) {
         "exit-survey": {
             "kind": "exp-lookit-exit-survey",
             "debriefing": {
-                "text": "Children do not always want to do what they are asked and they must make decisions about whether or not to go along with what another person wants. How do children handle situations where their goals are at odds with other people’s goals? In this study, we explored children’s predictions about how a child in a story based on what the parent in the story says and on whether or not the child’s goals conflict with the parent’s goals. Findings from this study will help us better understand how children balance their own and others’ needs and how misunderstandings can occur in communication, whether honestly or on purpose. <br><br> To thank you for your participation, we'll be emailing you a $5 Amazon gift card (via a code that can be entered online) and certificate of participation. This should arrive in your inbox within the next week after we confirm your consent video and check that your child is in the age range for this study. (If you don't hear from us by then, feel free to reach out!) If you participate again with another child in the age range, you'll receive one gift card per child.",
+                "text": "We greatly appreciate you and your child taking the time to participate in our research today. Children do not always want to do what they are asked and they must make decisions about whether or not to go along with what another person wants. How do children handle situations where their goals are at odds with other people’s goals? In this study, we are exploring children’s predictions about how a child in a story will behave based on what the parent in the story tells them to do and on whether or not the child’s goals conflict with the parent’s goals. Your child saw six stories about children and their parents. In each story, a parent made a request of their child and your child was told both what the parent wants the child to do and what the child wants to do. In three stories, the child wanted to do what the parent told them to do (e.g., the parent says, “Don’t jump on that couch,” and the child is tired of jumping and wants to stop), while in the other 3 stories, the child does not want to do what their parent has asked (e.g., the child wants to keep jumping on the couch). Your child was then asked to predict how the child in the story would respond from three possibilities: (1) doing exactly what the parent has asked, (2) not doing what the parent has asked, or (3) technically doing what the parent has asked but not what the parent actually wants (e.g., the child starts jumping on a different couch). We are curious if children are more likely to predict response 3 (technically doing what was asked but not what was wanted) when what the child and the parent in the story each want are at odds versus when they are in agreement. Findings from this study will help us better understand how children balance their own and others’ needs and how misunderstandings can occur in communication, whether honestly or on purpose. <br><br> To thank you for your participation, we'll be emailing you a $5 Amazon gift card (via a code that can be entered online) and certificate of participation. This should arrive in your inbox within the next week after we confirm your consent video and check that your child is in the age range for this study. (If you don't hear from us by then, feel free to reach out!) If you participate again with another child in the age range, you'll receive one gift card per child.",
                 "title": "Thank you!"
             }
         },
@@ -151,7 +151,7 @@ function generateProtocol(child, pastSessions) {
             "datause": "We are interested in your child's predictions about how a child in a story acts based on what the parent in the story says and on whether or not the child’s goals conflict with the parent’s goals. Your child's answers will be recorded for data analysis.",
             "payment": "After you finish the study, we will email you a $5 Amazon gift card (via a code that can be entered online) and certificate of participation within seven days. To be eligible for the gift card and certificate, (1) your child must be in the age range for this study, (2) English is (one of) your child's first language(s), (3) you need to submit a valid consent statement, and (4) we need to see that there is a child with you during the experiment. If you or your child do not wish to complete the entire study or for some reason we are unable to use your child's data, we will still send you and your child a gift card and certificate. There are no other direct benefits to you or your child from participating, but we hope you will enjoy the experience.",
             "purpose": "This study is about how children handle situations where their goals are at odds with other people’s goals.",
-            "procedures": "In this study you and your child will see and hear stories with fun illustrations of real-life situations. In each story, a parent will make a request of their child. Your child will be told what the parent wants and what the child wants. Your child will then be asked to predict how the child in the story will respond to what their parent said from three possibilities displayed on the screen.",
+            "procedures": "You and your child will see and hear stories with fun illustrations of real-life situations. In each story, a parent will make a request of their child. Your child will be told what the parent wants and what the child wants. Your child will then be asked to predict how the child in the story will respond to what the parent in the story said from three possibilities displayed on the screen. The three possibilities will be: (1) doing exactly what the parent has asked, (2) not doing what the parent has asked, or (3) technically doing what the parent has asked but not what the parent actually wants (e.g., a parent says, “No more Xbox tonight” and the child switches to PlayStation).",
             "institution": "Massachusetts Institute of Technology"
         },
         "text-instructions2": {
@@ -160,7 +160,7 @@ function generateProtocol(child, pastSessions) {
                 "title": "Study overview",
                 "image": {
                     "alt": "Study flowchart",
-                    "src": "https://raw.githubusercontent.com/buksters/WHN/main/img/study_overview.jpg"
+                    "src": "https://raw.githubusercontent.com/buksters/WHN/main/img/study_overview.png"
                 },
                 "text": "\n",
                 "listblocks": [
@@ -357,22 +357,22 @@ function generateProtocol(child, pastSessions) {
                     "highlights": [
                         {
                             "range": [
-                                4,
-                                5
+                                3,
+                                4
                             ],
                             "imageId": "option1"
                         },
                         {
                             "range": [
-                                5,
-                                6.5
+                                4.5,
+                                5.5
                             ],
                             "imageId": "option2"
                         },
                         {
                             "range": [
-                                6.5,
-                                8
+                                6,
+                                7
                             ],
                             "imageId": "option3"
                         }
@@ -484,8 +484,8 @@ function generateProtocol(child, pastSessions) {
 
     // Start off the frame sequence with config/consent frames; we'll add test
     // trials as we construct them
-    let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "next-practice", "warmup"];
-    // let frame_sequence = ["warmup"];
+    // let frame_sequence = ["text-instructions1", "video-config", "video-consent", "text-instructions2", "text-instructions3", "start-recording", "next-practice", "warmup"];
+    let frame_sequence = ["start-recording","warmup"];
 
     let stories = ['tablet', 'room', 'jumping', 'outside', 'writing', 'computer', 'm&ms', 'popcorn', 'tub', 'laundry', 'peas', 'jacket'];
     let conditions = ['aligned', 'misaligned'];
@@ -608,6 +608,10 @@ function generateProtocol(child, pastSessions) {
         if (iTrial == 0) 
         {
             filler_audio = 'first_story';
+        }
+        else if (iTrial == 2) 
+        {
+            filler_audio = 'first_three';
         }
         else {
             filler_audio = 'next_story';
